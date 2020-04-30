@@ -23,7 +23,9 @@
     "pretest-watch": "npm run check-deps-pre",
     "test-watch": "npm run unit -- --watch",
     "types": "npm run dtslint",
-    "unit": "BLUEBIRD_DEBUG=1 NODE_ENV=test bin-up mocha --reporter mocha-multi-reporters --reporter-options configFile=../mocha-reporter-config.json"
+    "unit": "BLUEBIRD_DEBUG=1 NODE_ENV=test bin-up mocha --reporter mocha-multi-reporters --reporter-options configFile=../mocha-reporter-config.json",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "@cypress/listr-verbose-renderer": "0.4.1",
@@ -57,7 +59,8 @@
     "tmp": "0.1.0",
     "untildify": "3.0.3",
     "url": "0.11.0",
-    "yauzl": "2.10.0"
+    "yauzl": "2.10.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@cypress/sinon-chai": "1.1.0",
@@ -103,5 +106,6 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "types": "types"
+  "types": "types",
+  "snyk": true
 }
