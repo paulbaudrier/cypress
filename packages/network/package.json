@@ -6,13 +6,16 @@
   "scripts": {
     "build-js": "bin-up tsc --project .",
     "clean-deps": "rm -rf node_modules",
-    "test": "bin-up mocha --reporter mocha-multi-reporters --reporter-options configFile=../../mocha-reporter-config.json"
+    "test": "bin-up mocha --reporter mocha-multi-reporters --reporter-options configFile=../../mocha-reporter-config.json",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bluebird": "3.5.3",
     "debug": "4.1.1",
     "lodash": "4.17.15",
-    "proxy-from-env": "1.0.0"
+    "proxy-from-env": "1.0.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "@cypress/debugging-proxy": "2.0.1",
@@ -26,5 +29,6 @@
   "files": [
     "lib"
   ],
-  "types": "./lib/index.ts"
+  "types": "./lib/index.ts",
+  "snyk": true
 }
