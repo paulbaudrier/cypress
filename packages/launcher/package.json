@@ -16,7 +16,9 @@
     "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";",
     "pretest": "npm run check-deps-pre",
     "test": "npm run unit",
-    "unit": "bin-up mocha --reporter mocha-multi-reporters --reporter-options configFile=../../mocha-reporter-config.json"
+    "unit": "bin-up mocha --reporter mocha-multi-reporters --reporter-options configFile=../../mocha-reporter-config.json",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "bluebird": "3.5.3",
@@ -25,7 +27,8 @@
     "fs-extra": "8.1.0",
     "lodash": "4.17.15",
     "plist": "2.1.0",
-    "ramda": "0.24.1"
+    "ramda": "0.24.1",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "bin-up": "1.2.2",
@@ -37,5 +40,6 @@
   "files": [
     "lib"
   ],
-  "types": "../ts/index.d.ts"
+  "types": "../ts/index.d.ts",
+  "snyk": true
 }
